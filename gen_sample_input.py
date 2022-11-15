@@ -21,4 +21,4 @@ data = {'age': 82,
  'native.country': 'United-States'}
 
 
-dump_json(data, 'sample_input/sample_input.json')
+dump_json(data, 'sample_files/sample_input.json')
