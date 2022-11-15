@@ -39,8 +39,6 @@ def get_args():
 
 def main():
     args = get_args()
-
-
     print(f'Reading file from {args.src}')
 
     # Get RAW JSON File
@@ -60,12 +58,13 @@ def main():
         return input_payload['error_msg']
 
     prediction = model.predict(input_payload['data'])
-    
-    print('Prediction Output: ')
-    print_json(prediction)
+    final_output = {**raw_payload, **prediction}
 
+    print('Prediction Output: ')
+    print_json(final_output)
+    
     print(f'Saving file to {args.dst}')
-    dump_json(prediction, args.dst)
+    dump_json(final_output, args.dst)
 
 if __name__ == '__main__':
     main()

@@ -43,9 +43,21 @@ Making Prediction:
 }
 Prediction Output:
 {
+    "age": 82,
+    "workclass": "private",
+    "fnlwgt": 132870,
+    "education": "hs-grad",
+    "marital.status": "widowed",
+    "occupation": "exec-managerial",
+    "relationship": "not-in-family",
+    "race": "white",
+    "sex": "female",
+    "capital.gain": 0,
+    "capital.loss": 4356,
+    "hours.per.week": 18,
+    "native.country": "united-states",
     "status": "success",
     "prediction_raw": 0.08823289115946195,
     "predicted_income_class": "<=50k"
 }
-Saving file to sample_files/sample_output.json
 ```
