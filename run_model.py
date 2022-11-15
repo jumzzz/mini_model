@@ -23,7 +23,8 @@ def load_pickle(path):
 
 def dump_json(data, path):
     with open(path, 'w') as f:
-        json.dump(data, f)
+        data_str = json.dumps(data, indent=4)
+        f.write(data_str)
 
 def print_json(data):
     print(json.dumps(data, indent=4))
