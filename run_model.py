@@ -42,6 +42,9 @@ def main():
     args = get_args()
     print(f'Reading file from {args.src}')
 
+    # around here get file S3 and download locally
+    
+
     # Get RAW JSON File
     raw_payload = load_json(args.src)
 
@@ -66,6 +69,12 @@ def main():
     
     print(f'Saving file to {args.dst}')
     dump_json(final_output, args.dst)
+
+    # you can now upload to another S3
+
+
+
+
 
 if __name__ == '__main__':
     main()
