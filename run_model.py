@@ -1,25 +1,15 @@
+import json
 import argparse
 import os
-from standard_payload import StandardPayload
 from model_predict import Model
-
-import cloudpickle
-import json
-
+from standard_payload import StandardPayload
 
 REFERENCE_JSON = 'dependencies/standard_payload.json'
-TRANSFORMER_FILE='dependencies/data_transformer.pkl'
-MODEL_FILE='dependencies/model.txt'
 
 
 def load_json(path):
     with open(path, 'r') as f:
         return json.load(f)
-
-def load_pickle(path):
-    with open(path, 'rb') as f:
-        return cloudpickle.load(f)
-
 
 def dump_json(data, path):
     with open(path, 'w') as f:
@@ -48,11 +38,12 @@ def main():
     # Get RAW JSON File
     raw_payload = load_json(args.src)
 
-    std_payload = StandardPayload(ref_json=REFERENCE_JSON)
-    model = Model(model_file=MODEL_FILE, transformer_file=TRANSFORMER_FILE)
+    model = Model()
 
     print('Making Prediction: ')
     print_json(raw_payload)
+
+    std_payload = StandardPayload(ref_json=REFERENCE_JSON)
 
     input_payload = std_payload.validate_data(raw_payload)
 
